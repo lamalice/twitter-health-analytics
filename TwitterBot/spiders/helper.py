@@ -1,21 +1,31 @@
 from textblob import TextBlob
 
-def translate(self, item_text):
-    trans_sent = []
-    if item_text == None or item_text == "":
-        return "Nothing to translate"
-    if isinstance(item_text, str):
+class TwitterHelper:
+
+    def cleaner(self, item_text):
+
         try:
-            en_blob = TextBlob(item_text)
-            item_text = str(en_blob.translate(to='en'))
-        except:
-            return item_text
-        return item_text
-    for sent in item_text:
-        try:
-            en_blob = TextBlob(sent)
-            trans_sent.append(str(en_blob.translate(to='en')))
-        except:
-            trans_sent.append(sent)
-            pass
-    return trans_sent
+            cleaned_text = []
+            for item in item_text:
+                item = ' '.join(str(item).replace('\n', "").split())
+                cleaned_text.append(item)
+
+
+
+                return cleaned_text
+        except TypeError:
+            return None
+
+    def translate(self, item_text):
+        if item_text == None or item_text == "":
+            return "null"
+        elif isinstance(item_text, str):
+            date = []
+            for item in str(item_text).split(' '):
+                try:
+                    en_blob = TextBlob(item)
+                    item = str(en_blob.translate(to='en'))
+                    date.append(item)
+                except:
+                   date.append(item)
+            return ','.join(date).replace(',',' ')

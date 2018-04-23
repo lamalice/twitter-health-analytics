@@ -18,6 +18,9 @@ class TwitterbotItem(Item):
     hash_tags = Field()
     translation_text = Field()
     twitter_url = Field()
+    user_location = Field()
+    post_likes = Field()
+    post_retweets = Field()
 
     page_items = Field()
 

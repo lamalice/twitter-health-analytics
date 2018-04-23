@@ -14,7 +14,9 @@ BOT_NAME = 'TwitterBot'
 SPIDER_MODULES = ['TwitterBot.spiders']
 NEWSPIDER_MODULE = 'TwitterBot.spiders'
 
-DEPTH_LIMIT = 4
+DEPTH_LIMIT = 3
+
+# DUPEFILTER_CLASS = 'scrapy.dupefilter.RFPDupeFilter'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'TwitterBot (+http://www.yourdomain.com)'
